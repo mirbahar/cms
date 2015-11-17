@@ -2,7 +2,8 @@
 
 <div id="infoMessage"><?php echo $message;?></div>
 
-<?php echo form_open('auth/reset_password/' . $code);?>
+<?php //echo form_open('auth/reset_password/' . $code);?>
+<form action="/auth/reset_password/.<?php echo $code ; ?>" method="get">
 
 	<p>
 		<label for="new_password"><?php echo sprintf(lang('reset_password_new_password_label'), $min_password_length);?></label> <br />
@@ -19,4 +20,5 @@
 
 	<p><?php echo form_submit('submit', lang('reset_password_submit_btn'));?></p>
 
-<?php echo form_close();?>
+<?php //echo form_close();?>
+</form>

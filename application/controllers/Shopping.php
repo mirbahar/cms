@@ -24,6 +24,7 @@ class Shopping extends App_Controller {
 	
 	 function add()
 	{
+
               // Set array for send data.
 		$insert_data = array(
 			'id' => $this->input->post('id'),

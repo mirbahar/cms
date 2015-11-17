@@ -29,6 +29,7 @@ class Auth extends App_Controller {
 		}
 		else
 		{
+
 			//set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
@@ -47,6 +48,7 @@ class Auth extends App_Controller {
 	//log the user in
 	function login()
 	{
+
 		$this->data['title'] = "Login";
 
 		//validate form input
@@ -61,10 +63,11 @@ class Auth extends App_Controller {
 
 			if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
 			{
+
 				//if the login is successful
 				//redirect them back to the home page
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
-//				redirect('/', 'refresh');
+				// $this->session->set_flashdata('message', $this->ion_auth->messages());
+				//redirect('/', 'refresh');
 				redirect('Products/index', 'refresh');
 			}
 			else
@@ -78,6 +81,7 @@ class Auth extends App_Controller {
 		}
 		else
 		{
+           // echo "ok";die;
 			//the user is not logging in so display the login page
 			//set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
@@ -805,5 +809,7 @@ class Auth extends App_Controller {
 
 		if (!$render) return $view_html;
 	}
+
+
 
 }

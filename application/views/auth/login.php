@@ -3,8 +3,8 @@
 
 <div id="infoMessage"><?php echo $message;?></div>
 
-<?php echo form_open("auth/login");?>
-
+<?php //echo form_open("auth/login");?>
+<form action="<?php echo site_url('/auth/login'); ?>" method="post">
   <p>
     <?php echo lang('login_identity_label', 'identity');?>
     <?php echo form_input($identity);?>
@@ -23,6 +23,7 @@
 
   <p><?php echo form_submit('submit', lang('login_submit_btn'));?></p>
 
-<?php echo form_close();?>
+
+</form>
 
 <p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>

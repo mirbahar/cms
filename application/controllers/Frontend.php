@@ -14,6 +14,10 @@ class Frontend extends App_Controller {
 
     public function index()
     {
-        $this->layout->view('Frontend/home');
+        $this->layout->view('contact');
+    }
+    public function contact()
+    {
+        $this->layout->view('contact');
     }
 }

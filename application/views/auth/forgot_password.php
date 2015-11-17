@@ -3,7 +3,8 @@
 
 <div id="infoMessage"><?php echo $message;?></div>
 
-<?php echo form_open("auth/forgot_password");?>
+<?php //echo form_open("auth/forgot_password");?>
+<form action="/auth/forgot_password" method="get">
 
       <p>
       	<label for="email"><?php echo sprintf(lang('forgot_password_email_label'), $identity_label);?></label> <br />
@@ -12,4 +13,5 @@
 
       <p><?php echo form_submit('submit', lang('forgot_password_submit_btn'));?></p>
 
-<?php echo form_close();?>
+<?php //echo form_close();?>
+</form>

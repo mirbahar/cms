@@ -1,158 +1,582 @@
-body{       
-    background-color:#E0E0E0;
-      margin:0 auto;
-       font-family: 'Raleway', sans-serif;
+
+
+/*css reset*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
-#content{
-    
-    width:979px;
-    margin:0 auto;
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*font-face*/
+
+
+
+
+
+@font-face {
+    font-family: 'helveticaregular';
+    src: url('fonts/Helvetica-webfont.eot');
+    src: url('fonts/Helvetica-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Helvetica-webfont.woff2') format('woff2'),
+         url('fonts/Helvetica-webfont.woff') format('woff'),
+         url('fonts/Helvetica-webfont.ttf') format('truetype'),
+         url('fonts/Helvetica-webfont.svg#helveticaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/*font-face*/
+/*css reset*/
+
+
+body {
+	background-color: #fff;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Bitter', serif;
+}
+
+
+
+
+
+/*header */
+.navbar-default {
+    background-color: transparent;
+     border-color: transparent;
+}
+header {
+    background-color: #0072c6;
+    padding-top: 10px;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+    font-weight: bolder;
+}
+.navbar-default .navbar-brand {
+    color: #fff;
+    font-weight: bolder;
+}
+.navbar-nav>li {
+    float: left;
+    margin-right: 70px;
+}
+.content{
+	background-color: #4390df;
+	
+}
+.sidebarContent{
+    padding-top: 65px;
+    padding-bottom: 40px;
+}
+.tac{
+	text-align: center;
+}
+a.button.success {
+    width: 100%;
+    height: 55px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.bgc{
+	background-color: #fff;
+}
+.para h1 {
+    margin-top: 150px;
+    font-size: 25px;
+    color: #000;
+    font-weight: 700;
+}
+.para h2 {
+    margin-top: 30px;
+    font-size: 25px;
+    color: #000;
+    font-weight: 700;
+    margin-bottom: 154px;
+}
+/*footer*/
+footer {
+    background-color: #0072c6;
+    padding: 30px 0px;
+    color: #000000;
+    font-weight: 900;
+}
+.foo a{
+	color: #000;
+}
+.tar{
+	    text-align: right;
+}
+.viewc{
+	background-color: #111111;
+	margin:5px -5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
    
 }
-#result_div {
-    background-color: #FFF;
-    width: 640px;
-    height: 175px;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    margin-left: 445px;
-    margin-top: 300px;
+.viewc a.button.success {
+    width: 80%;
+    height: 50px;
 }
-h1{
-    padding:20px;
-    background-color:#333333;
-    width: 600px;
-    color:#FFF;
+.viewc h3{
+	color: #fff;
+	margin-top: 15px;
+    margin-bottom: 20px;
 }
-#products_e{
-    background-color: #FFFFFF;
-    width: 979px;
-    position: absolute;
-    margin-top: 10px;
-
+.viewc ins{
+	color: #fff;
+    margin-bottom: 20px;
 }
-#cart{
-    width:979px;
-    height:auto;
-    margin-top: -20px;
-    position:relative;
-    background-color:#FFFFFF;
-}
-h2{
-    font-family: 'Raleway', sans-serif;
-    padding:20px;
-    background-color:#333333;
-    color:#FFF;
+img.attachment-shop_catalog.wp-post-image {
+    width: 250px;
+    height: 300px;
 }
 
-#product_div{
-    width: 310px;
-    height:500px;
-    background: #fff;
-    position: relative;
+
+
+
+
+
+/*PopUp*/
+#lean_overlay {
+        position: fixed;
+        z-index: 100;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        background: #000;
+        display: none;
+}
+
+.popupContainer {
+        position: absolute;
+        width: 330px;
+        height: auto;
+        left: 45%;
+        top: 60px;
+        background: #FFF;
+}
+
+#modal_trigger {
+        margin: 5px 10px;
+    	width: 100px;
+        display: block;
+        border: 1px solid #DDD;
+        border-radius: 4px;
+}
+
+.btn {
+        padding: 10px 20px;
+        background: #F4F4F2;
+}
+
+.btn_red {
+        background: #ED6347;
+        color: #FFF;
+}
+
+.btn:hover {
+        background: #E4E4E2;
+}
+
+.btn_red:hover {
+        background: #C12B05;
+}
+
+a.btn {
+        color: #666;
+        text-align: center;
+        text-decoration: none;
+}
+
+a.btn_red {
+        color: #FFF;
+}
+
+.one_half {
+        width: 50%;
+        display: block;
+        float: left;
+}
+
+.one_half.last {
+        width: 45%;
+        margin-left: 5%;
+}
+/* Popup Styles*/
+
+.popupHeader {
+        font-size: 16px;
+        text-transform: uppercase;
+}
+
+.popupHeader {
+        background: #F4F4F2;
+        position: relative;
+        padding: 10px 20px;
+        border-bottom: 1px solid #DDD;
+        font-weight: bold;
+        border-radius: 10px;
+}
+
+.popupHeader .modal_close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 10px 15px;
+        background: #E4E4E2;
+        cursor: pointer;
+        color: #aaa;
+        font-size: 16px;
+        border-radius: 10px;
+}
+
+.popupBody {
+        padding: 20px;
+}
+/* Social Login Form */
+
+.social_login {}
+
+.social_login .social_box {
+        display: block;
+        clear: both;
+        padding: 10px;
+        margin-bottom: 10px;
+        background: #F4F4F2;
+        overflow: hidden;
+}
+
+.social_login .icon {
+        display: block;
+        width: 10px;
+        padding: 5px 10px;
+        margin-right: 10px;
+        float: left;
+        color: #FFF;
+        font-size: 16px;
+        text-align: center;
+}
+
+.social_login .fb .icon {
+        background: #3B5998;
+}
+
+.social_login .google .icon {
+        background: #DD4B39;
+}
+
+.social_login .icon_title {
+        display: block;
+        padding: 5px 0;
+        float: left;
+        font-weight: bold;
+        font-size: 16px;
+        color: #777;
+}
+
+.social_login .social_box:hover {
+        background: #E4E4E2;
+}
+
+.centeredText {
+        text-align: center;
+        margin: 20px 0;
+        clear: both;
+        overflow: hidden;
+        text-transform: uppercase;
+}
+
+.action_btns {
+        clear: both;
+        overflow: hidden;
+}
+
+.action_btns a {
+        display: block;
+}
+/* User Login Form */
+
+.last input.btn.btn_red {
     float: left;
-    padding: 5px;
-    margin: 2px;
-    border: 1px solid #E0E0E0;
-
 }
-div#image_div {
+.last a{
+    text-decoration: underline;
+    float: right;
+    margin-top: 10px;
+}
+span.mif-user {
+    position: absolute;
+    left: 30px;
+    margin-top: 10px;
+}
+span.mif-lock {
+    position: absolute;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.user_login label {
+        display: block;
+        margin-bottom: 5px;
+}
+
+.user_login input[type="text"],
+.user_login input[type="email"],
+.user_login input[type="password"] {
+        display: block;
+        width: 90%;
+        padding: 10px;
+        border: 1px solid #DDD;
+        color: #666;
+}
+
+.user_login input[type="checkbox"] {
+        float: left;
+        margin-right: 5px;
+}
+
+.user_login input[type="checkbox"]+label {
+        float: left;
+}
+
+.user_login .checkbox {
+        margin-bottom: 10px;
+        clear: both;
+        overflow: hidden;
+}
+
+.forgot_password {
+        display: block;
+        margin: 20px 0 10px;
+        clear: both;
+        overflow: hidden;
+        text-decoration: none;
+        color: #ED6347;
+}
+/* User Register Form */
+
+.user_register {
+        display: none;
+}
+
+.user_register label {
+        display: block;
+        margin-bottom: 5px;
+}
+
+.user_register input[type="text"],
+.user_register input[type="email"],
+.user_register input[type="password"] {
+        display: block;
+        width: 90%;
+        padding: 10px;
+        border: 1px solid #DDD;
+        color: #666;
+}
+
+.user_register input[type="checkbox"] {
+        float: left;
+        margin-right: 5px;
+}
+
+.user_register input[type="checkbox"]+label {
+        float: left;
+}
+
+.user_register .checkbox {
+        margin-bottom: 10px;
+        clear: both;
+        overflow: hidden;
+}
+div#modal {
+    border-radius: 10px;
+}
+/*PopUp*/
+.col-sm-8.tac.para {
+    border: 5px solid #F98C04;
+}
+.side{
+    border: 5px solid #F98C04;
+    text-align: center;
+}
+.sb{
+    padding: 0;
+}
+.side h1 {
+    margin: 50px 0px;
+}
+
+
+
+.link_div{
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.link_div a{
+    margin-right: 20px;
+    padding:10px 5px;
+}
+.link_div .active{
+    border: 1px solid #BBB5B5;
+    color: #BBB5B5;
+}
+.link_content_div{
+    border: 2px solid #BBB5B5;
+    background-color: #F5F0F0;
+    padding: 12px;
+}
+a.mykc {
+    margin: 15px 10px;
+    border: 3px solid #F58903;
+    padding: 5px 10px;
+}
+.pour_con ul li {
+    list-style-type: disc;
+    margin-left: 10px;
+        color: #0072C6;
+}
+.pour_con {
+    margin-top: 10px;
+    background-color: #90BEEF;
+    padding: 10px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+/*signuppage*/
+
+.signuppage{
+    background-color: #ABABAB;
+}
+.signupc{
+    background-color: #fff;
+}
+.signupmaincon{
+    background-color: #E7EAE7;
+    border:3px solid #CCCECC;
+        padding: 10px;
+}
+.signupmaincon .mykc{
+    float:left !important;
+}
+h2.properties {
+        font-weight: bolder;
+    border-bottom: 2px solid #CCC8C8;
+    padding-bottom: 5px;
+    font-size: 22px;
+}
+
+.signup_form input{
     width: 300px;
-    height: 250px;
-
+    border: 2px solid #DEDBDB;
+    margin: 10px 10px;
+    padding: 8px;
+    border-radius: 8px;
 }
-div#info_product {
-    height: 165px;
+.sada{
+    height: 70px;
+    background-color: #fff;
+    margin:0 30px;
+    border-radius: 5px;
 }
-tr {
-    background: white;
+.smsada{
+    height: 20px;
+    background-color: #fff;
+    margin: 0 -13px;
 }
-#bill_info{
-    background-color:#FFF;
-    width:640px;
-    margin:0 auto;
-    margin-bottom:10px;
+input.inputone {
+    width: 100px;
 }
-h1{
-    padding:20px;
-    background-color:#333333;
-    color:#FFF;
+i.fa.fa-plug {
+    font-size: 20px;
+    margin-right: 5px;
 }
-div#text {
-    color: #08BBB7;
-    margin-left: 255px;
-    margin-top: -19px;
-    margin-bottom: 10;
-    font-family: 'Raleway', sans-serif;
+/*OrderLogin*/
+.row.olbg {
+    border: 2px solid #4390df;
+    box-shadow: 0px 0px 10px #1b6eae;
+        padding: 12px;
 }
-
-#heading{
-    padding-bottom:10px
+.one_half input{
+    color: #fff;
+    background-color: #0072C6;
 }
-#table{
-    font-size:15px; 
-    background-color:#E1E1E1;
-    width:100%;
+.boderleft{
+    box-shadow: -1px 0px 10px #555555;
+    padding: 150px;
+    border-left: 2px solid #555555;
 }
-tr{
-    bgcolor:#FFFFFF;
+.marginaround {
+    margin: 20px 0px;
+    border-radius: 10px;
+    margin:80px 0px;
 }
-#main_heading{
-    font-weight:bold;
-    bgcolor:#FFFFFF;
-}
-div#name {
-font-weight: 700;
-font-size: 17px;
-margin-bottom: 10px;
-}
-div#desc {
-font-size: 15px;
-margin-bottom: 11px;
-min-height: 105px;
-line-height: 1.4;
-}
-div#add_button {
-margin-top: 23px;
-}
-span#go_back {
-margin-left: 245px;
-}
-
-.fg-button{
-position: relative;
-top: 0;
-border-radius: 4;
-font-size: 18px;
-padding: 8px 28px;
-text-decoration: none;
-border: 0px solid;
-cursor: pointer;
-border-bottom-width: 3px;
-outline: none;
--webkit-transition: 0.3s background;
--moz-transition: 0.3s background;
-transition: 0.3s background;
-}
-
-.fg-button:active{
-top: 2px;
+.lostpass input.btn {
+    color: #fff;
+    background-color: #0072C6;
+    width: 115px;
+    float: left;
 }
 
 
-.fg-button.teal{
-color: #fff;
-border-color: #04A5A1;
-background-color:#08BBB7;
-}
-
-.fg-button.teal:hover{
-background: #0ACFCB;
-}
 
 
-.fg-button.teal:active{
-background: #09cbc7;
-top: 2px;
-border-bottom-width: 1px;
-}
+
+
+
+
+
+
+
+
+
+
+

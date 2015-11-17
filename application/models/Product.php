@@ -12,11 +12,8 @@ class Product extends App_Model
     public function getAll()
     {
 
-        $sql = "SELECT p.name as product_name,p.image,p.price,p.id as product_id,p.description,p.manufacture, categories.name as category_name,
-                        product_details.products_detail_id as products_detail_id
-                FROM  products p
-                INNER JOIN  product_details ON p.id = product_details.product_id
-                INNER JOIN  categories ON categories.id = product_details.category_id";
+        $sql = "SELECT p.name as product_name,p.price,p.id as product_id
+                FROM  products p ORDER BY p.id ASC ";
 
         $query = $this->db->query($sql);
         if ($query->num_rows() > 0) {
