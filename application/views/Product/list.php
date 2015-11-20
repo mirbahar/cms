@@ -14,11 +14,11 @@
                     <table class="table table-bordered" style="width:100%">
                         <thead>
                         <tr>
+                            <th style="width: 15%;">created Date</th>
                             <th  style="width: 15%">name</th>
                             <th style="width: 15%;">price</th>
                             <th style="width: 15%;">description</th>
-                            <th style="width: 15%;">category</th>
-                            <th style="width: 25%;">Image</th>
+                            <th style="width: 25%;">Created By</th>
                             <th style="width: 15%;">Action</th>
                         </tr>
                         </thead>
@@ -30,14 +30,13 @@
 
                                 <tr>
                                     <td><?php echo $product['product_name']?> </td>
-                                    <td><?php echo $product['price']?> </td>
+                                    <td><?php echo $product['created_date']?> </td>
+                                    <td><?php echo $product['product_price']?> </td>
                                     <td><?php echo $product['description']?> </td>
-                                    <td><?php echo $product['category_name']?> </td>
-                                    <td><img src="<?php echo base_url()?>uploads/product/<?php echo $product['image'] ?>" class="thumbnail" style="width: 165px;height: 140px;"></td>
-                                    <td><a href="<?php base_url('')?>/Products/deleteProductByCategoryWise/<?php echo $product['products_detail_id']?>"
+                                    <td><?php echo $product['username']?> </td>
+                                    <td><a href="<?php base_url('')?>/Products/deleteByProductId/<?php echo $product['product_id']?>"
                                            onclick="return confirm('Are You sure you want to delete this record?')">Delete</a></td>
                                 </tr>
-
                             <?php } ?>
 
                         <?php } else {?>

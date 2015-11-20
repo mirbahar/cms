@@ -11,13 +11,15 @@ class Shopping extends App_Controller {
         $this->load->model('Product');
         $this->load->model('BillingModel');
         $this->load->helper(array('form', 'url'));
-        $this->load->library('cart');
+        $this->load->library(array('ion_auth','form_validation','cart'));
 	}
 
 	public function index()
 	{
         $this->load->model('product');
         $this->data['products'] = $this->product->getAll();
+
+        $this->data['message'] = $this->session->set_flashdata('message', $this->ion_auth->errors());
 		$this->layout->view('Shopping/shopping_view', $this->data);
 	}
 	

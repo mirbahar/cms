@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
 <link rel="shortcut icon" href="#">
-<title>MetroCss</title>
+<title><?php echo lang('safe_camp')?></title>
 
 
 <link rel="stylesheet"  href="/assets/FrontEnd/css/normalize.css" type="text/css" media="all">
@@ -47,27 +47,38 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav">
-					<li class=""><a href="/">SAFE CAMP</a></li>
-					<li><a href="orderlogin.php">My Order</a></li>
+					<li class=""><a href="/"><?php echo lang('safe_camp')?></a></li>
+					<li><a href="/Orders/orderLogin"><?php echo lang('my_order')?></a></li>
+<!--					<li><a href="orderlogin.php#">--><?php //echo lang('my_order')?><!--</a></li>-->
 					<li class="dropdown">
 						<a href="#" class="" data-toggle="dropdown">Languages <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a  href="#" class="">French</a></li>
-							<li><a href="#">English</a></li>
-							<li><a href="#">Spanish</a></li>
+							<li><a href='<?php echo base_url(); ?>LanguageSwitch/switchLanguage/french'>French</a></li>
+							<li><a href='<?php echo base_url(); ?>LanguageSwitch/switchLanguage/english'>English</a></li>
+							<li><a href='<?php echo base_url(); ?>LanguageSwitch/switchLanguage/spanish'>Spanish</a></li>
 							
 						</ul>
 					</li>
 				</ul>
-				
+                <ul class="nav navbar-nav">
+                        <?php if(!empty($_SESSION['user_id'])) {?>
+					<li><a href="/auth/logout"><?php echo lang('logout')?></a></li>
+                    <?php }?>
+
+				</ul>
+                <!--<ul class="nav navbar-nav">
+                    <div id="infoMessage"><?php /*echo $message;*/?></div>
+
+				</ul>-->
+
 				<ul class="nav navbar-nav navbar-right">
 					
 					<li class="dropdown">
-						<a href="#" class="" data-toggle="dropdown">ENTER <b class="caret"></b></a>
+						<a href="#" class="" data-toggle="dropdown"><?php echo lang('enter')?> <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a id="modal_trigger" href="#modal" class="btn">Login</a></li>
-							<li><a id="" href="signup.php" class="btn">Create new account</a></li>
-                            <li><a id="" href="changepassword.php" class="btn">Change Password</a></li>
+							<li><a id="" href="/Auth/create_user" class="btn">Create new account</a></li>
+                            <li><a id="" href="/auth/front_change_password" class="btn">Change Password</a></li>
 							
 						</ul>
 					</li>
@@ -95,24 +106,26 @@
                 <!-- Social Login -->
                 <div class="social_login">
                         <div class="user_login">
-                        <form action="" method="POST">
+
+
+                        <form action="<?php echo site_url('/auth/frontEndLogin'); ?>" method="post">
                                 <label>Email / Username</label>
                                 <span class="mif-user"></span>
-                                <input type="text">
+                                <input type="text"name="identity">
                                 <br>
 
                                 <label>Password</label>
                                 <span class="mif-lock"></span>
-                                <input type="password">
+                                <input type="password" name="password">
                                 <br>
-                                 <input type="checkbox" id="rememberme" value="" />
+                                 <input type="checkbox" name="remember" id="rememberme" value="1" />
                                  <label for="remember">Remember me on this computer</label>
-                                
+
 
                                 <div class="action_btns">
-                                        
-                                <div class="one_half last">
-                                    <input type="submit" class="btn btn_red" value="Login">
+
+                                <div class="one_half last modal_close">
+                                    <input type="submit" class="btn btn_red " value="Login">
                                 <a href="#" >Cancel</a></div>
                                 </div>
                         </form>

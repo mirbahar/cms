@@ -19,6 +19,7 @@ class Auth extends App_Controller {
 	{
 		if (!$this->ion_auth->logged_in())
 		{
+
 			redirect('shopping/index', 'refresh');
 		}
 		elseif (!$this->ion_auth->is_admin()) //remove this elseif if you want to enable this for non-admins
@@ -40,7 +41,6 @@ class Auth extends App_Controller {
 				$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
 			}
 
-			// $this->_render_page('auth/index', $this->data);
             $this->layout->view('auth/index', $this->data);
 		}
 	}
@@ -48,6 +48,7 @@ class Auth extends App_Controller {
 	//log the user in
 	function login()
 	{
+
 
 		$this->data['title'] = "Login";
 
@@ -65,10 +66,13 @@ class Auth extends App_Controller {
 			{
 
 				//if the login is successful
-				//redirect them back to the home page
-				// $this->session->set_flashdata('message', $this->ion_auth->messages());
-				//redirect('/', 'refresh');
-				redirect('Products/index', 'refresh');
+
+                if(!$this->ion_auth->is_admin()){
+                    redirect('/', 'refresh');
+                } else {
+                    redirect('Products/index', 'refresh');
+                }
+
 			}
 			else
 			{
@@ -99,10 +103,69 @@ class Auth extends App_Controller {
 			$this->_render_page('auth/login', $this->data);
 		}
 	}
+    function frontEndLogin()
+    {
 
+
+        $this->data['title'] = "Login";
+
+        //validate form input
+        $this->form_validation->set_rules('identity', 'Identity', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+
+        if ($this->form_validation->run() == true)
+        {
+
+            //check to see if the user is logging in
+            //check for "remember me"
+            $remember = (bool) $_POST['remember'];
+
+            if ($this->ion_auth->login($_POST['identity'], $_POST['password'], $remember))
+            {
+
+                //if the login is successful
+
+                if(!$this->ion_auth->is_admin()){
+                    redirect('/', 'refresh');
+                } else {
+                    redirect('Products/index', 'refresh');
+                }
+
+            }
+            else
+            {
+
+                //if the login was un-successful
+                //redirect them back to the login page
+                $this->session->set_flashdata('message', $this->ion_auth->errors());
+                redirect('/', 'refresh');
+                //use redirects instead of loading views for compatibility with MY_Controller libraries
+            }
+        }
+        else
+        {
+            // echo "ok";die;
+            //the user is not logging in so display the login page
+            //set the flash data error message if there is one
+            $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+
+            $this->data['identity'] = array('name' => 'identity',
+                'id' => 'identity',
+                'type' => 'text',
+                'value' => $this->form_validation->set_value('identity'),
+            );
+            $this->data['password'] = array('name' => 'password',
+                'id' => 'password',
+                'type' => 'password',
+            );
+
+            $this->_render_page('auth/login', $this->data);
+        }
+    }
 	//log the user out
 	function logout()
 	{
+
 		$this->data['title'] = "Logout";
 
 		//log the user out
@@ -110,7 +173,7 @@ class Auth extends App_Controller {
 
 		//redirect them to the login page
 		$this->session->set_flashdata('message', $this->ion_auth->messages());
-		redirect('auth/login', 'refresh');
+		redirect('/', 'refresh');
 	}
 
 	//change password
@@ -180,6 +243,48 @@ class Auth extends App_Controller {
 			}
 		}
 	}
+
+    function front_change_password()
+    {
+        if (!$this->ion_auth->logged_in())
+        {
+            redirect('/', 'refresh');
+        }
+
+        $user = $this->ion_auth->user()->row();
+
+        if ($this->form_validation->run() == false)
+        {
+
+            $data = $this->input->post();
+            $change = $this->ion_auth->change_password($_SESSION['identity'], $this->input->post('old'), $this->input->post('new'));
+            //render
+            $this->layout->setLayout('layout_login');
+            $this->layout->view('/auth/changepassword');
+           // $this->_render_page('auth/change_password', $this->data);
+        }
+        else
+        {
+
+            $identity = $this->session->userdata('identity');
+            var_dump($identity);die;
+
+            $change = $this->ion_auth->change_password($identity, $this->input->post('old'), $this->input->post('new'));
+
+            if ($change)
+            {
+                //if the password was successfully changed
+                $this->session->set_flashdata('message', $this->ion_auth->messages());
+                $this->logout();
+            }
+            else
+            {
+                $this->session->set_flashdata('message', $this->ion_auth->errors());
+                 redirect('auth/change_password', 'refresh');
+
+            }
+        }
+    }
 
 	//forgot password
 	function forgot_password()
@@ -422,10 +527,12 @@ class Auth extends App_Controller {
 	//create a new user
 	function create_user()
 	{
+
 		$this->data['title'] = "Create User";
 
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
 		{
+
 			redirect('auth', 'refresh');
 		}
 
@@ -509,10 +616,11 @@ class Auth extends App_Controller {
 				'value' => $this->form_validation->set_value('password_confirm'),
 			);
 
-			$this->_render_page('auth/create_user', $this->data);
+            $this->layout->setLayout('layout_main');
+
+			$this->layout->view('auth/create_user', $this->data);
 		}
 	}
-
 	//edit a user
 	function edit_user($id)
 	{

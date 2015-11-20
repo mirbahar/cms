@@ -12,9 +12,11 @@
         }
     }
 </script>
-<section class="content">
+<section class="oderlogin sidebarContent">
     <div class="container">
   <?php echo $content_for_layout;?>
+        <br>
+        <br>
     </div>
 
 </section>

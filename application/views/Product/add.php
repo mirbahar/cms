@@ -47,27 +47,27 @@
 
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label>Category</label>
                         <div class="input-group">
 
                                 <select name="category_id[]" multiple>
                                     <option value="">&lt;Please Select Category&gt;</option>
                                     <?php
-                                    foreach ($categories as $category) {
-                                        ?>
+/*                                    foreach ($categories as $category) {
+                                        */?>
                                         <option
-                                            value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?></option>
-                                    <?php } ?>
+                                            value="<?php /*echo $category['id'] */?>"><?php /*echo $category['name'] */?></option>
+                                    <?php /*} */?>
                                 </select>
                         </div>
-                        <span class="help-block with-errors error"><?php echo form_error('category_id[]'); ?></span>
-                    </div>
-                    <div class="form-group">
+                        <span class="help-block with-errors error"><?php /*echo form_error('category_id[]'); */?></span>
+                    </div>-->
+                   <!-- <div class="form-group">
                         <span class="btn btn-default btn-file">
     Image <input type="file" name="image">
 </span>
-                    </div>
+                    </div>-->
                     <div class="form-actions">
                         <button type="submit" class="btn default">Save</button>
                     </div>

@@ -26,6 +26,7 @@ class Products extends App_Controller
     }
     public function save()
     {
+
         $data     = $this->input->post();
 
         $this->load->model('product');
@@ -34,41 +35,20 @@ class Products extends App_Controller
         $this->data['categories'] = $this->category->getAll();
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('price', 'Price', 'required');
-        $this->form_validation->set_rules('category_id[]', 'at least one Category', 'required');
         if (!empty($_POST)) {
 
             if ($this->form_validation->run() == TRUE)
             {
-                $this->handleUpload();
+               // $this->handleUpload();
+
                 $this->saveData($data);
             }
-
-
         }
         $this->layout->view('Product/add', $this->data);
     }
 
-    public function productList(){
 
-        $this->load->model('product');
-        $this->data['products'] = $this->product->getAll();
-        foreach($this->data['products'] as $productList)
-        {
-
-            $values[] = array(
-                'id' => $productList['products_detail_id'],
-                'name' => $productList['product_name'],
-                'description' => $productList['description'],
-                'price' => $productList['price'],
-                'category_name' => $productList['category_name'],
-                'image' => $productList['image']
-            );
-
-        }
-       // header("content-type: application/json");
-        echo  json_encode($values);
-    }
-
+    //TODO:
     private function handleUpload()
     {
         $config['upload_path']   = './uploads/product';
@@ -81,8 +61,10 @@ class Products extends App_Controller
             $this->uploadedFile = $this->upload->data();
         }
     }
-    public function deleteProductByCategoryWise($id)
+
+    public function deleteByProductId($id)
     {
+
         $this->load->model('product');
         $this->product->delete($id);
         $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
@@ -96,9 +78,24 @@ class Products extends App_Controller
     public function saveData($data)
     {
         if (empty($data['id'])) {
-            $data['image'] = $_FILES['image']['name'];
+            $data['created_date'] = date('Y-m-d H:i:s');
+            $data['created_by'] = $_SESSION['user_id'];
+
             $this->data['product_id'] = $this->product->create($data);
-             $this->product->insertProductDetail($data['category_id'], $this->data['product_id']);
+            redirect('Products/index', 'refresh');
+        } else {
+            $data['updated_date'] = date('Y-m-d H:i:s');
+            $data['updated_by'] = $_SESSION['user_id'];
+            // update product in future
+        }
+    }
+    //TODO:
+    public function saveData1($data)
+    {
+        if (empty($data['id'])) {
+          //  $data['image'] = $_FILES['image']['name'];
+            $this->data['product_id'] = $this->product->create($data);
+            // $this->product->insertProductDetail($data['category_id'], $this->data['product_id']);
             redirect('Products/index', 'refresh');
         } else {
             // update product in future

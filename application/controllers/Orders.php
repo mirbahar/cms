@@ -8,6 +8,7 @@ class Orders extends App_Controller
         parent::__construct();
         $this->layout->setLayout('layout_admin');
         $this->load->model('order');
+        $this->load->library('cart');
     }
 
     public function index()
@@ -17,5 +18,11 @@ class Orders extends App_Controller
         $this->data['orders'] = $this->order->getAll();
 
         $this->layout->view('Order/list', $this->data);
+    }
+
+    public function orderLogin(){
+
+        $this->layout->setLayout('layout_login');
+        $this->layout->view('auth/orderlogin',$this->data);
     }
 }

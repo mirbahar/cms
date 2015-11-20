@@ -11,9 +11,13 @@ class Product extends App_Model
 
     public function getAll()
     {
-
-        $sql = "SELECT p.name as product_name,p.price,p.id as product_id
-                FROM  products p ORDER BY p.id ASC ";
+        $sql = "SELECT p.id as product_id,p.name as product_name,
+                       p.price as product_price, p.description, p.created_date, u.id as user_id,
+                       u.username
+                FROM  products p
+                LEFT JOIN users u
+                ON u.id = p.created_by
+                ORDER BY p.id DESC ";
 
         $query = $this->db->query($sql);
         if ($query->num_rows() > 0) {
@@ -28,11 +32,10 @@ class Product extends App_Model
         return $this->insert($data);
     }
     public  function delete($id){
-        $this->loadTable('product_details','products_detail_id');
+        $this->loadTable('products','id');
        $this->remove($id);
     }
-
-
+    //TODO:
     public function insertProductDetail($data,$product_id){
 
             $insertMultipleCategory = array();

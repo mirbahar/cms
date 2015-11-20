@@ -97,7 +97,7 @@
         <?php
         $id = $product['product_id'];
         $name = $product['product_name'];
-        $price = $product['price'];
+        $price = $product['product_price'];
 
         ?>
         <div class="col-sm-3 tac">
