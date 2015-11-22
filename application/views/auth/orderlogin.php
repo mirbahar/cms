@@ -5,30 +5,34 @@
 				<a href="#" class="mykc">Login/Password</a>
 				<br/>
 				<br/>
-
-				<p>Nous avons le plaisir de confirmer votre inscription sur notre site Safe Camp.</p>
+<!--                <div id="infoMessage">--><?php //echo $message;?><!--</div>-->
+				<p><?php echo lang('login_desc')?></p>
 				<br/>
 				 <div class="user_login">
-                        <form action="/auth/frontEndLogin" method="POST">
-                                <label><b>Address Email or Pseudo</b></label>
+                        <form action="<?php echo site_url(); ?>auth/frontEndLogin" method="POST">
+                                <label><b><?php echo lang('email_address')?></b></label>
                                 <span class="mif-user"></span>
-                                <input type="text" name="identity">
-                                <br>
 
-                                <label><b>Votere mod de pass</b></label>
+                                <input type="text" name="identity" style="padding-left: 35px;">
+                            <br>
+                            <span><?php echo form_error('identity'); ?></span>
+                            <br>
+                                <label><b><?php echo lang('login_password')?></b></label>
                                 <span class="mif-lock"></span>
-                                <input type="password" name="password">
+                                <input type="password" name="password" style="padding-left: 35px;">
+                            <br/>
+                                <span><?php echo form_error('password'); ?></span>
                                 <br>
                                 
-                                 <a href="forgotpassword.php" style="text-decoration:underline;" >Forgot your password?</a>
+                                 <a href="<?php echo site_url()?>auth/forgot_password" style="text-decoration:underline;" >Forgot your password?</a>
                                 <br/>
                                 <br/>
-					<p>Nous avons le plaisir de confirmer votre inscription sur notre site Safe Camp.Nous avons le plaisir de confirmer votre inscription sur notre site Safe Camp.</p>
+					<p><?php echo lang('login_paragraph')?></p>
 					<br/>
                                 <div class="action_btns">
                                         
                                 <div class="one_half last">
-                                    <input type="submit" class="btn btn_red" value="Se Connecter">
+                                    <input type="submit" class="btn btn_red" value="<?php echo lang('login')?>">
                                 </div>
                                 </div>
                         </form>
@@ -39,7 +43,8 @@
 				
 			</div>
 			<div class="col-sm-6 boderleft">
-				<a href="" class="button success">Create New Account</a>
+<!--				<a href="--><?php //echo site_url()?><!--auth/customerSignUp" class="button success">--><?php //echo lang('sign_up')?><!--</a>-->
+				<a href="<?php echo site_url()?>auth/sign_up" class="button success"><?php echo lang('sign_up')?></a>
 
 
 			</div>
@@ -117,7 +122,8 @@
                             <?php echo form_close(); ?>
 
                             <!-- "Place order button" on click send "billing" controller  -->
-                            <input type="button" class ='fg-button teal' value="Place Order" onclick="window.location = '/shopping/billing_view'"></td>
+<!--                            <input type="button" class ='fg-button teal' value="Place Order" onclick="window.location = '/shopping/billing_view'"></td>-->
+                            <input type="button" class ='fg-button teal' value="Place Order" onclick="window.location = '<?php echo site_url(); ?>shopping/save_order'"></td>
                     </tr>
                 <?php endif; ?>
             </table>

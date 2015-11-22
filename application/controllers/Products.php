@@ -35,6 +35,8 @@ class Products extends App_Controller
         $this->data['categories'] = $this->category->getAll();
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('price', 'Price', 'required');
+
+
         if (!empty($_POST)) {
 
             if ($this->form_validation->run() == TRUE)

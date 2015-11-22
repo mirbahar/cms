@@ -6,7 +6,7 @@
 			</div>
 			<div class="col-sm-3 foo"><a href="#">CGV</a></div>
 			<div class="col-sm-3 foo"><a href="/Frontend/contact">Contact</a></div>
-			<div class="col-sm-3 foo tar"> <a href="userInterface.php">Mentions legales</a></div>
+			<div class="col-sm-3 foo tar"> <a href="/Shopping/mentionLigals">Mentions legales</a></div>
 		</div>
 	</div>
 </footer>

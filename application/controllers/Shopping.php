@@ -83,13 +83,15 @@ class Shopping extends App_Controller {
 		}
 		redirect('shopping');        
 	}	
-        function billing_view(){
+        function billing_view()
+        {
 
 		$this->layout->view('Shopping/billing_view');
         }
         
         	public function save_order()
-	{
+	        {
+                $user = $this->ion_auth->user()->row();
 
           // This will store all values which inserted  from user.
 		$customer = array(
@@ -100,11 +102,11 @@ class Shopping extends App_Controller {
 
 		);
                  // And store user imformation in database.
-		$cust_id = $this->BillingModel->insert_customer($customer);
+		// $cust_id = $this->BillingModel->insert_customer($customer);
 
 		$order = array(
 			'date' 			=> date('Y-m-d'),
-			'customerid' 	=> $cust_id,
+			'customerid' 	=> $user->id,
 
 		);		
 
@@ -117,8 +119,7 @@ class Shopping extends App_Controller {
 					'productid' 	=> $item['id'],
 					'quantity' 		=> $item['qty'],
 					'price' 		=> $item['price'],
-                    'status' 	    => 1,
-                    'delivery_type' => $this->input->post('delivery_type')
+                    'status' 	    => 1
 
 				);		
 
@@ -129,6 +130,11 @@ class Shopping extends App_Controller {
 		endif;
 	      
                 // After storing all imformation in database load "billing_success".
-                $this->layout->view('Shopping/billing_success');
+                $this->layout->view('Shopping/userInterface');
 	}
+
+    public function mentionLigals(){
+
+        $this->layout->view('Shopping/userInterface');
+    }
 }

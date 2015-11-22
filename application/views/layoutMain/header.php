@@ -48,21 +48,21 @@
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav">
 					<li class=""><a href="/"><?php echo lang('safe_camp')?></a></li>
-					<li><a href="/Orders/orderLogin"><?php echo lang('my_order')?></a></li>
+					<li><a href="<?php echo site_url()?>Orders/orderLogin"><?php echo lang('my_order')?></a></li>
 <!--					<li><a href="orderlogin.php#">--><?php //echo lang('my_order')?><!--</a></li>-->
 					<li class="dropdown">
 						<a href="#" class="" data-toggle="dropdown">Languages <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href='<?php echo base_url(); ?>LanguageSwitch/switchLanguage/french'>French</a></li>
-							<li><a href='<?php echo base_url(); ?>LanguageSwitch/switchLanguage/english'>English</a></li>
-							<li><a href='<?php echo base_url(); ?>LanguageSwitch/switchLanguage/spanish'>Spanish</a></li>
+							<li><a href='<?php echo site_url(); ?>LanguageSwitch/switchLanguage/french'>French</a></li>
+							<li><a href='<?php echo site_url(); ?>LanguageSwitch/switchLanguage/english'>English</a></li>
+							<li><a href='<?php echo site_url(); ?>LanguageSwitch/switchLanguage/spanish'>Spanish</a></li>
 							
 						</ul>
 					</li>
 				</ul>
                 <ul class="nav navbar-nav">
                         <?php if(!empty($_SESSION['user_id'])) {?>
-					<li><a href="/auth/logout"><?php echo lang('logout')?></a></li>
+					<li><a href="<?php echo site_url(); ?>auth/logout"><?php echo lang('logout')?></a></li>
                     <?php }?>
 
 				</ul>
@@ -77,8 +77,8 @@
 						<a href="#" class="" data-toggle="dropdown"><?php echo lang('enter')?> <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a id="modal_trigger" href="#modal" class="btn">Login</a></li>
-							<li><a id="" href="/Auth/create_user" class="btn">Create new account</a></li>
-                            <li><a id="" href="/auth/front_change_password" class="btn">Change Password</a></li>
+							<li><a id="" href="<?php echo site_url(); ?>Auth/create_user" class="btn">Create new account</a></li>
+                            <li><a id="" href="<?php echo site_url(); ?>auth/front_change_password" class="btn">Change Password</a></li>
 							
 						</ul>
 					</li>
@@ -108,7 +108,7 @@
                         <div class="user_login">
 
 
-                        <form action="<?php echo site_url('/auth/frontEndLogin'); ?>" method="post">
+                        <form action="<?php echo site_url(); ?>auth/frontEndLogin" method="post">
                                 <label>Email / Username</label>
                                 <span class="mif-user"></span>
                                 <input type="text"name="identity">

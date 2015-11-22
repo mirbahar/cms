@@ -84,7 +84,7 @@ $lang['my_order'] ='MY ORDER';
 $lang['enter'] ='ENTER';
 
 //customer create page
-
+$lang['account_creation'] ="Création d'un compte";
 $lang['name'] ='Name';
 $lang['first_name'] ='First Name';
 $lang['email'] ='Email';
@@ -93,10 +93,13 @@ $lang['confirm_password'] ='Confirm Password';
 
 // billing address
 $lang['socialite'] ='socialite';
+$lang['billing_address'] ='Billing Address';
+$lang['pays'] ='Country';
 $lang['Country'] ='address';
 $lang['city'] ='City';
 $lang['postal_code'] ='postal code';
-
+$lang['Owner'] ='Owner';
+$lang['billing_addr'] ='address';
 // credential
 $lang['login'] ='Login';
 $lang['logout'] ='Logout';
@@ -104,5 +107,10 @@ $lang['logout'] ='Logout';
 $lang['change_pass'] ='Change your password';
 $lang['pass_mode'] ='Pass Mode';
 $lang['pass_mode_cfm'] ='Confirm Pass Mode';
+$lang['login_desc'] ='We are pleased to confirm your registration on our site Safe Camp .';
+$lang['login_paragraph'] ="We are pleased to confirm your registration on our site Safe Camp.Nous 're pleased to confirm your registration on our site Safe Camp .'";
+$lang['email_address'] ='Email Address';
+$lang['login_password'] ='Password';
+$lang['sign_up'] ='Create New Account';
 
 
