@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <title>Welcome to CMS</title>
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/assets/css/style.css" rel="stylesheet" />
-    <link href="/assets/css/app.css" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/css/app.css" rel="stylesheet" />
 
-    <script src="/assets/js/jquery-1.11.3.min.js"></script>
-    <script src="/assets/js/bootstrap.js"></script>
+    <script src="<?php echo base_url()?>assets/js/jquery-1.11.3.min.js"></script>
+    <script src="<?php echo base_url()?>assets/js/bootstrap.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -20,8 +20,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Product <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/Products/save">Product Add</a></li>
-                        <li><a href="/Products/index">Product List</a></li>
+                        <li><a href="<?php echo site_url()?>Products/save">Product Add</a></li>
+                        <li><a href="<?php echo site_url()?>Products/index">Product List</a></li>
                     </ul>
                 </li>
             </ul>
@@ -30,7 +30,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order List <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/Orders/index">Order List</a></li>
+                        <li><a href="<?php echo site_url()?>Orders/index">Order List</a></li>
                     </ul>
                 </li>
             </ul>
@@ -40,8 +40,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Category <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/Categories/save">Category Add</a></li>
-                        <li><a href="/Categories/index">Category List</a></li>
+                        <li><a href="<?php echo site_url()?>Categories/save">Category Add</a></li>
+                        <li><a href="<?php echo site_url()?>Categories/index">Category List</a></li>
                     </ul>
                 </li>
             </ul>
@@ -50,9 +50,9 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/auth/create_user">User Add</a></li>
-                        <li><a href="/auth/create_group">Group Add</a></li>
-                        <li><a href="/auth/index">User List</a></li>
+                        <li><a href="<?php echo site_url()?>auth/create_user">User Add</a></li>
+                        <li><a href="<?php echo site_url()?>auth/create_group">Group Add</a></li>
+                        <li><a href="<?php echo site_url()?>auth/index">User List</a></li>
                     </ul>
                 </li>
             </ul>

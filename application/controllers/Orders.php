@@ -16,7 +16,7 @@ class Orders extends App_Controller
 
         $this->load->model('order');
         $this->data['orders'] = $this->order->getAll();
-
+//var_dump($this->data['orders']);die;
         $this->layout->view('Order/list', $this->data);
     }
 

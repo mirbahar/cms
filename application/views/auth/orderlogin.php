@@ -43,10 +43,7 @@
 				
 			</div>
 			<div class="col-sm-6 boderleft">
-<!--				<a href="--><?php //echo site_url()?><!--auth/customerSignUp" class="button success">--><?php //echo lang('sign_up')?><!--</a>-->
 				<a href="<?php echo site_url()?>auth/sign_up" class="button success"><?php echo lang('sign_up')?></a>
-
-
 			</div>
 		</div>
 <?php } else {?>
@@ -104,7 +101,7 @@
                             $ <?php echo number_format($item['subtotal'], 2) ?>
                         </td>
                         <td>
-                            <a href="shopping/remove/<?php echo $item['rowid']?>">remove</a>
+                            <a href="<?php echo site_url()?>shopping/remove/<?php echo $item['rowid']?>">remove</a>
                         </td>
                     <?php endforeach; ?>
                     </tr>

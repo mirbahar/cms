@@ -39,7 +39,7 @@ class Shopping extends App_Controller {
 		$this->cart->insert($insert_data);
 	      
                 // This will show insert data in cart.
-		redirect('shopping');
+		redirect('/');
 	     }
 	
 		function remove($rowid) {
@@ -58,7 +58,7 @@ class Shopping extends App_Controller {
 		}
 		
                  // This will show cancle data in cart.
-		redirect('shopping');
+		redirect('/');
 	}
 	
 	    function update_cart(){
@@ -81,7 +81,7 @@ class Shopping extends App_Controller {
              
 			$this->cart->update($data);
 		}
-		redirect('shopping');        
+		redirect('Orders/orderLogin');
 	}	
         function billing_view()
         {
@@ -128,8 +128,7 @@ class Shopping extends App_Controller {
 		         $cust_id = $this->BillingModel->insert_order_detail($order_detail);
 			endforeach;
 		endif;
-	      
-                // After storing all imformation in database load "billing_success".
+                $this->cart->destroy();
                 $this->layout->view('Shopping/userInterface');
 	}
 

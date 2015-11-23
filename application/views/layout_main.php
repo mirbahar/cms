@@ -6,7 +6,7 @@
         var result = confirm('Are you sure want to clear all bookings?');
 
         if (result) {
-            window.location = "<?php echo base_url(); ?>index.php/shopping/remove/all";
+            window.location = "<?php echo base_url(); ?>shopping/remove/all";
         } else {
             return false; // cancel button
         }

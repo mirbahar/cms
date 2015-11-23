@@ -86,20 +86,25 @@ $lang['enter'] ='ENTRER';
 
 //customer create page
 
-$lang['name'] ='Name';
+$lang['name'] ='nom';
 $lang['account_creation'] ="Création d'un compte";
-$lang['first_name'] ='First Name';
+$lang['create_new_user'] ="Créer un nouvel utilisateur";
+$lang['first_name'] ='Prénom';
 $lang['email'] ='Email';
-$lang['password'] ='Password';
-$lang['confirm_password'] ='Confirm Password';
+$lang['password'] ='Mot de passe';
+$lang['confirm_password'] ='Confirmez le mot de passe';
+$lang['create_user'] = 'Créer un utilisateur';
+$lang['remember_me'] = 'Se souvenir de moi sur ce com';
+$lang['cancel'] = 'Annuler';
 
 // billing address
 $lang['billing_address'] ='Billing Address';
+$lang['address'] ='Adresse';
 
 $lang['vill'] ='Vill';
-$lang['socialite'] ='socialite';
-$lang['pays'] ='Country';
-$lang['billing_addr'] ='address';
+$lang['socialite'] ='personnalité mondaine';
+$lang['pays'] ='Pays';
+$lang['billing_addr'] ='adresse';
 $lang['city'] ='Ville';
 $lang['postal_code'] ='Code postal';
 $lang['Owner'] ='Proprietaire';
@@ -117,5 +122,7 @@ $lang['email_address'] ='Address Email';
 $lang['login_password'] ='Votere mod de pass';
 $lang['login_paragraph'] ='Nous avons le plaisir de confirmer votre inscription sur notre site Safe Camp.Nous avons le plaisir de confirmer votre inscription sur notre site Safe Camp.';
 $lang['sign_up'] ='Créer un nouveau compte';
+// product
 
+$lang['buy_item'] = "acheter l'article";
 

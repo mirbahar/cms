@@ -14,13 +14,12 @@
                         <tr>
                             <th  style="width: 15%">Id</th>
                             <th  style="width: 15%">Date</th>
+                            <th  style="width: 15%">Name</th>
                             <th style="width: 15%;">Quantity</th>
                             <th style="width: 15%;">Price</th>
                             <th style="width: 15%;">Product</th>
                             <th style="width: 25%;">Address</th>
-                            <th style="width: 25%;">phone</th>
-                            <th style="width: 25%;">delivery_type</th>
-                            <th style="width: 25%;">status</th>
+<!--                            <th style="width: 25%;">status</th>-->
                         </tr>
                         </thead>
 
@@ -32,19 +31,20 @@
                                 <tr>
                                     <td><?php echo $order['serial']?> </td>
                                     <td><?php echo $order['date']?> </td>
+                                    <td><?php echo $order['first_name']?> </td>
                                     <td><?php echo $order['quantity']?> </td>
                                     <td><?php echo $order['price']?> </td>
                                     <td><?php echo $order['name']?> </td>
                                     <td><?php echo $order['address']?> </td>
-                                    <td><?php echo $order['phone']?> </td>
-                                    <td><?php echo $order['delivery_type']?> </td>
-                                    <td><?php echo $order['status_name']?> </td>
+
+
+<!--                                    <td>--><?php //echo $order['status_name']?><!-- </td>-->
                                 </tr>
 
                             <?php } ?>
 
                         <?php } else {?>
-                            <tr><td colspan="4">Product Are not available!</td></tr>
+                            <tr><td colspan="8">Order Are not available!</td></tr>
                         <?php }?>
                         </tbody>
 

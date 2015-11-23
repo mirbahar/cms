@@ -124,7 +124,7 @@ class Auth extends App_Controller {
                 //if the login is successful
 
                 if(!$this->ion_auth->is_admin()){
-                    redirect('/', 'refresh');
+                    redirect('Orders/orderLogin', 'refresh');
                 } else {
                     redirect('Products/index', 'refresh');
                 }
@@ -189,6 +189,7 @@ class Auth extends App_Controller {
 
 		if (!$this->ion_auth->logged_in())
 		{
+
 			redirect('auth/login', 'refresh');
 		}
 
@@ -252,7 +253,7 @@ class Auth extends App_Controller {
     {
         if (!$this->ion_auth->logged_in())
         {
-            redirect('/', 'refresh');
+            redirect('Orders/orderLogin', 'refresh');
         }
 
         $user = $this->ion_auth->user()->row();
@@ -260,8 +261,8 @@ class Auth extends App_Controller {
         if ($this->form_validation->run() == false)
         {
 
-            $data = $this->input->post();
-            $change = $this->ion_auth->change_password($_SESSION['identity'], $this->input->post('old'), $this->input->post('new'));
+
+            $change = $this->ion_auth->change_password($_SESSION['identity'],true, $this->input->post('new_password'));
             //render
             $this->layout->setLayout('layout_login');
             $this->layout->view('/auth/changepassword');
@@ -269,7 +270,7 @@ class Auth extends App_Controller {
         }
         else
         {
-
+                echo "ok";die;
             $identity = $this->session->userdata('identity');
 
 
@@ -639,9 +640,9 @@ class Auth extends App_Controller {
         //validate form input
         $this->form_validation->set_rules('first_name', $this->lang->line('name'), 'required');
         $this->form_validation->set_rules('last_name', $this->lang->line('first_name'), 'required');
-        $this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'required|valid_email|is_unique['.$tables['users'].'.email]');
-        $this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
-        $this->form_validation->set_rules('password_confirm', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
+        $this->form_validation->set_rules('email', $this->lang->line('email'), 'required|valid_email|is_unique['.$tables['users'].'.email]');
+        $this->form_validation->set_rules('password', $this->lang->line('pass_mode'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
+        $this->form_validation->set_rules('password_confirm', $this->lang->line('pass_mode_cfm'), 'required');
 
        // billing address validation
         $this->form_validation->set_rules('sociality', $this->lang->line('socialite'), 'required');
@@ -670,8 +671,17 @@ class Auth extends App_Controller {
         {
             //check to see if we are creating the user
             //redirect them back to the admin page
-            $this->session->set_flashdata('message', $this->ion_auth->messages());
-            redirect("auth", 'refresh');
+            /*$this->session->set_flashdata('message', $this->ion_auth->messages());
+            redirect("auth", 'refresh');*/
+            if ($this->ion_auth->login($email, $password))
+            {
+                if(!$this->ion_auth->is_admin()){
+                    redirect('Orders/orderLogin', 'refresh');
+                } else {
+                    redirect('Products/index', 'refresh');
+                }
+
+            }
         }
         else
         {

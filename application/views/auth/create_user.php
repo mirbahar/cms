@@ -23,21 +23,20 @@
                     <?php echo lang('first_name', 'first_name');?> <br />
                     <?php echo form_input($last_name);?>
                 </p>
-                    <div class="sada"></div>
 
                 <p>
-                    <?php echo lang('create_user_email_label', 'email');?> <br />
+                    <?php echo lang('email', 'email');?> <br />
                     <?php echo form_input($email);?>
                 </p>
 
 
                 <p>
-                    <?php echo lang('create_user_password_label', 'password');?> <br />
+                    <?php echo lang('password', 'password');?> <br />
                     <?php echo form_input($password);?>
                 </p>
 
                 <p>
-                    <?php echo lang('create_user_password_confirm_label', 'password_confirm');?> <br />
+                    <?php echo lang('confirm_password', 'password_confirm');?> <br />
                     <?php echo form_input($password_confirm);?>
                 </p>
 
@@ -50,12 +49,10 @@
                         <?php echo form_input($sociality);?>
                     </p>
                     <p>
-                        <?php echo lang('billing_addr', 'billing_addr');?> <br />
+                        <?php echo lang('address', 'address');?> <br />
                         <?php echo form_input($address);?>
                     </p>
 
-                    <div class="smsada"></div>
-                    <br/><br/>
                     <label><?php echo lang('vill')?></label>
 
                     <p>
@@ -64,7 +61,7 @@
                         <?php echo form_input($country);?>
                     </p>
 
-                <p><?php echo form_submit('submit', lang('create_user_submit_btn'),'class = btn btn_red');?></p>
+                <p><?php echo form_submit('submit', lang('create_user'),'class = btn btn_red');?></p>
 
                 <?php echo form_close();?>
                     </div>

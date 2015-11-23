@@ -37,7 +37,7 @@
 
                 ?>
                 <button type="submit" class="button success">
-                    <i class="fa fa-angle-double-left"></i>&nbsp;&nbsp; Buy Item <?php echo $id;?>&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i>
+                    <i class="fa fa-angle-double-left"></i>&nbsp;&nbsp; <?php echo lang('buy_item')?> <?php echo $id;?>&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i>
                 </button>
                 <?php echo form_close()?>
             </div>

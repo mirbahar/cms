@@ -12,12 +12,13 @@ class Order extends App_Model
     public function getAll()
     {
 
-        $sql = "SELECT *,status.name as status_name
-                FROM  orders
-                INNER JOIN  order_detail   ON order_detail.orderid  = orders.customerid
-                INNER JOIN  customers   ON customers.serial  = orders.serial
-                Left JOIN  status   ON status.id  = order_detail.status
-                INNER JOIN  products   ON products.id= order_detail.productid  order by date DESC ";
+        $sql = "SELECT * FROM orders
+                INNER JOIN order_detail
+                ON order_detail.orderid  = orders.serial
+                 INNER JOIN users
+                 ON users.id = orders.customerid
+                 INNER JOIN products
+                 ON products.id = order_detail.productid ";
 
         $query = $this->db->query($sql);
         if ($query->num_rows() > 0) {

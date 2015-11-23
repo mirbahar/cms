@@ -19,7 +19,7 @@
 
 
 
-					<a href="<?php echo base_url(); ?>index.php/shopping/remove/all"" onclick="" class="mykc">Button For New Order</a>
+					<a href="<?php echo base_url(); ?>shopping/remove/all" onclick="" class="mykc">Button For New Order</a>
 				</div>
 			</div>
 			<div class="col-sm-3"></div>
